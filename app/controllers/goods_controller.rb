@@ -1,9 +1,9 @@
 class GoodsController < ApplicationController
   def show
-    @goods = Goods.find(params[:id])
+    @good = Good.find(params[:id])
   end
 
   def index
-    @goods = Goods.all
+    @goods = Good.all
   end
 end

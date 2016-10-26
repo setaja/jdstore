@@ -1,11 +1,11 @@
 <table class="table table-boldred">
-  <% @Goods.each do |goods| %>
+  <% @goods.each do |good| %>
   <tr>
     <td>
-      <%= link_to(goods.title, goods_path(goods)) %>
+      <%= link_to(good.title, good_path(good)) %>
     </td>
     <td>
-      <%= goods.created_at %>
+      <%= good.created_at %>
     </td>
   </tr>
   <% end %>
