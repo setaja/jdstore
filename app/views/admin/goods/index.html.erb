@@ -1,0 +1,21 @@
+<div class"pull-right">
+  <%= link_to("Add a stuff", new_admin_good_path), :class => "btn btn-default") %>
+</div>
+<br><br>
+
+<table class="table table-boldered">
+  <% @goods.each to |good| %>
+  <tr>
+    <td>
+      <%= link_to (good.title, amdin_good_path(good)) %>
+    </td>
+    <td>
+      <%= link_to("Edit", edit_admin_good_path(good)) %>
+      <%= link_to("Destroy", admin_good_path(good), :method => :delete, :data => {:confirm => "Are you sure!?!"}) %>
+    </td>
+    <td>
+      <%= good.created_at %>
+    </td>
+  </tr>
+  <% end %>
+</table>
