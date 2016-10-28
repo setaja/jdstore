@@ -1,8 +1,16 @@
+<div class ="pull-right">
+  <%= link_to("Add a stuff", new_good_path, :class => "btn btn-default") %>
+</div>
+
 <table class="table table-boldred">
   <% @goods.each do |good| %>
   <tr>
     <td>
       <%= link_to(good.title, good_path(good)) %>
+    </td>
+    <td>
+      <%= link_to("Edit", edit_good_path(good)) %>
+      <%= link_to("Destroy", good_path(good), :method => :delete, :data => { :confirm => "Are you sure?!!"}) %>
     </td>
     <td>
       <%= good.created_at %>
