@@ -1,4 +1,5 @@
 class GoodsController < ApplicationController
+  before_filter :authenticate_user!, only:[:new, :create, :update, :edit, :destroy]
   def show
     @good = Good.find(params[:id])
   end
@@ -31,6 +32,12 @@ class GoodsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @good = Good.find(params[:id])
+    @good.destroy
+    redirect_to goods_path
   end
 
   private
