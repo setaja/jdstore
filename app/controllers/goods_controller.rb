@@ -11,9 +11,9 @@ class GoodsController < ApplicationController
   def index
     @goods = case params[:order]
     when 'by_price'
-      Good.where(is_hidden: false).order('stuff_price DESC')
+      Good.published.order('stuff_price DESC')
     else
-      Good.where(is_hidden: false).order('created_at DESC')
+      Good.published.recent
     end
   end
 
