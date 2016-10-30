@@ -42,6 +42,20 @@ class Admin::GoodsController < ApplicationController
     redirect_to goods_path
   end
 
+  def Publish
+    @good = Good.find(params[:id])
+    @good.is_hidden = false
+    @good.save
+    redirect_to :back
+  end
+
+  def hide
+    @good = Good.find(params[:id])
+    @good.is_hidden = true
+    @good.save
+    redirect_to :back
+  end
+
   private
 
   def good_params
