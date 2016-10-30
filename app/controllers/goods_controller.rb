@@ -5,7 +5,7 @@ class GoodsController < ApplicationController
   end
 
   def index
-    @goods = Good.all
+    @goods = Good.where(:is_hidden => false).order("created_at DESC")
   end
 
   def new

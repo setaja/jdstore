@@ -8,6 +8,7 @@
   <% @goods.each do |good| %>
   <tr>
     <td>
+      <%= render_good_status(good) %>
       <%= link_to(good.title, admin_good_path(good)) %>
     </td>
     <td>
