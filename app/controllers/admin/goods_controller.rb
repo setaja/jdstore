@@ -44,7 +44,7 @@ class Admin::GoodsController < ApplicationController
   private
 
   def good_params
-    params.require(:good).permit(:title, :description)
+    params.require(:good).permit(:title, :description, :stuff_size, :stuff_price, :stuff_quantity)
   end
 
 end
