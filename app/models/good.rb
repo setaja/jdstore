@@ -1,4 +1,7 @@
-class Good < ApplicationRecord
+class Good < ApplicationRecord::Base
+  has_many :photos, dependent: :destroy
+  accepts_nested_attributes_for :photos
+
   scope :published, -> { where(is_hidden: false) }
   scope :recent, -> { order('created_at DESC')}
   validates :title, presence:true
