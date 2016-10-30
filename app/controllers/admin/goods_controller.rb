@@ -41,13 +41,6 @@ class Admin::GoodsController < ApplicationController
     redirect_to goods_path
   end
 
-  def require_is_admin
-    if !current_user.admin?
-      flash[:alert] = 'you are not admin'
-      redirect_to root_path
-    end
-  end
-
   private
 
   def good_params
