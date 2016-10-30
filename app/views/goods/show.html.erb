@@ -1,4 +1,28 @@
 <h1><%= @good.title %></h1>
 <p>
+  [商品介紹]
   <%= simple_format(@good.description) %>
+  [商品尺寸]
+  <%= simple_format(@good.stuff_size) %>
+  <tbody>
+
+  <tr>
+    <td>
+      售價：
+      <%= @good.stuff_price %>
+    </td>
+    <br/>
+    <td>
+      庫存數量：
+      <%= @good.stuff_quantity %>
+    </td>
+    <br/>
+    <td>
+      上架時間：
+      <%= @good.created_at %>
+    </td>
+  </tr>
+
+</tbody>
+
 </p>
