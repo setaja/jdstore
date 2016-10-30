@@ -14,14 +14,17 @@
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
             <div class="row">
-              <div class="col-md-2">
-                sidebar
+
+             <div class="col-md-2">
+                <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
+                <li class="active"><%= link_to("Goods", admin_goods_path ) %> </li>
+                </ul>
               </div>
 
               <div class="col-md-10">
                 <%= yield %>
               </div>
-        </div>
+           </div>
 
         <%= render "common/footer" %>
 
