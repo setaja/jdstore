@@ -1,5 +1,6 @@
 class Admin::GoodsController < ApplicationController
   before_filter :authenticate_user!, only:[:new, :create, :update, :edit, :destroy]
+  before_filter :require_is_admin
   def show
     @good = Good.find(params[:id])
   end
@@ -40,11 +41,17 @@ class Admin::GoodsController < ApplicationController
     redirect_to goods_path
   end
 
+  def require_is_admin
+    if !current_user.admin?
+      flash[:alert] = 'you are not admin'
+      redirect_to root_path
+    end
+  end
+
   private
 
   def good_params
     params.require(:good).permit(:title, :description)
   end
 
-end
 end
