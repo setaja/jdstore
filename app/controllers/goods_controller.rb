@@ -43,7 +43,7 @@ class GoodsController < ApplicationController
   private
 
   def good_params
-    params.require(:good).permit(:title, :description, :stuff_size, :stuff_price, :stuff_quantity)
+    params.require(:good).permit(:title, :description, :stuff_size, :stuff_price, :stuff_quantity, :is_hidden)
   end
 
 end
