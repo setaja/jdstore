@@ -9,7 +9,12 @@ class GoodsController < ApplicationController
   end
 
   def index
-    @goods = Good.where(:is_hidden => false).order("created_at DESC")
+    @goods = case params[:order]
+    when 'by_price'
+      Good.where(is_hidden: false).order('stuff_price DESC')
+    else
+      Good.where(is_hidden: false).order('created_at DESC')
+    end
   end
 
   def new
