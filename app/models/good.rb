@@ -1,6 +1,6 @@
-class Good < ApplicationRecord::Base
+class Good < ApplicationRecord
   has_many :photos, dependent: :destroy
-  accepts_nested_attributes_for :photos
+  mount_uploader :image, ImageUploader
 
   scope :published, -> { where(is_hidden: false) }
   scope :recent, -> { order('created_at DESC')}

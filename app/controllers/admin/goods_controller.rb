@@ -14,6 +14,7 @@ class Admin::GoodsController < ApplicationController
     @good =Good.new
   end
 
+
   def create
     @good = Good.new(good_params)
     if @good.save
@@ -61,7 +62,8 @@ class Admin::GoodsController < ApplicationController
   private
 
   def good_params
-    params.require(:good).permit(:title, :description, :stuff_size, :stuff_price, :stuff_quantity, :is_hidden)
+    params.require(:good).
+    permit(:title, :description, :stuff_size, :stuff_price, :stuff_quantity, :is_hidden, :image)
   end
 
 end
