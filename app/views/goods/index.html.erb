@@ -8,42 +8,23 @@
           <%= link_to("按照價格排序", goods_path(:order => "by_price")) %>
         </li>
         <li>
-          <%= link_to("按照发表时间排序", goods_path ) %>
+          <%= link_to("最新上架", goods_path ) %>
 
         </li>
     </ul>
 </div>
-<table class="table table-boldred">
-  <thead>
-    <tr>
 
-      <td>商品名稱</td>
-      <td>商品尺寸</td>
-      <td>售價</td>
-      <td>庫存數量</td>
-      <td>刊登時間</td>
-    </tr>
-  </thead>
-  <tbody>
+
+  <div class="row">
   <% @goods.each do |good| %>
-  <tr>
-    <td>
-      <%= link_to(good.title, good_path(good)) %>
-    </td>
-    <td>
-      <%= good.stuff_size %>
-    </td>
-    <td>
-      <%= good.stuff_price %>
-    </td>
-    <td>
-      <%= good.stuff_quantity %>
-    </td>
+  <div class="col-xs-6 col-md-3">
+      <% if good.image.present? %>
+      <%= image_tag(good.image.thumb.url, class: "thumbnail") %>
+      <% else %>
+      <%= image_tag("http://placehold.it/200x200&text=NoPic", class: "thumbnail") %>
+      <% end %>
 
-    <td>
-      <%= good.created_at %>
-    </td>
-  </tr>
+      <%= good.title %> $ <%= good.stuff_price %>
+</div>
   <% end %>
-</tbody>
-</table>
+</div>

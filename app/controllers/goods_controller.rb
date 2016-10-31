@@ -1,12 +1,5 @@
 class GoodsController < ApplicationController
   before_filter :authenticate_user!, only:[:new, :create, :update, :edit, :destroy]
-  def show
-    @good = Good.find(params[:id])
-    if @good.is_hidden
-      flash[:warining] = "This stuff already sold out"
-      redirect_to root_path
-    end
-  end
 
   def index
     @goods = case params[:order]
@@ -14,6 +7,14 @@ class GoodsController < ApplicationController
       Good.published.order('stuff_price DESC')
     else
       Good.published.recent
+    end
+  end
+
+  def show
+    @good = Good.find(params[:id])
+    if @good.is_hidden
+      flash[:warining] = "This stuff is already sold out"
+      redirect_to root_path
     end
   end
 
