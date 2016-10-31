@@ -14,7 +14,8 @@
     <div> 數量： <%= @good.stuff_quantity %></div>
     <div class="product-price">$<%= @good.stuff_price %></div>
     <div class="pull-right">
-      <%= link_to("add to cart", "#", :class => "btn btn-primary btn-lg btn-danger") %>
+      <%#= link_to("add to cart", "#", :class => "btn btn-primary btn-lg btn-danger") %>
+      <%= link_to("加入购物车", add_to_cart_good_path(@good), :method => :post, :class => "btn btn-primary btn-lg btn-danger") %>
     </div>
   </div>
 </div>

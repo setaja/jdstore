@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031082230) do
+ActiveRecord::Schema.define(version: 20161031093111) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id"
-    t.integer  "product_id"
+    t.integer  "good_id"
     t.integer  "quantity",   default: 1
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -35,13 +35,6 @@ ActiveRecord::Schema.define(version: 20161031082230) do
     t.integer  "stuff_quantity"
     t.boolean  "is_hidden",      default: true
     t.string   "image"
-  end
-
-  create_table "photos", force: :cascade do |t|
-    t.integer  "product_id"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
