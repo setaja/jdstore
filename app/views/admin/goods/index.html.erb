@@ -1,30 +1,57 @@
-<div class="pull-right">
-  <%= link_to("Add a stuff", new_admin_good_path, :class => "btn btn-default" ) %>
+<h2> 商品一覽表 </h2>
+<div class="pull-right" style="padding-bottom: 20px;">
+  <%= link_to("Add a stuff", new_admin_good_path, :class => "btn btn-primary btn-sm" ) %>
 </div>
 
 <br><br>
 
 <table class="table table-boldered">
 
-
+<thead>
+  <tr>
+    <th>#</th>
+    <th width="220">Good Pic</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th with="100">Options</th>
+  </tr>
+</thead>
+<tbody>
   <% @goods.each do |good| %>
   <tr>
     <td>
-      <%= render_good_status(good) %>
-      <%= link_to(good.title, admin_good_path(good)) %>
+      <%= good.id %>
+    </td>
+    <td>
+      <%= link_to good_path(good) do %>
+      <% if good.image.present? %>
+      <%= image_tag(good.image.thumb.url, class: "thumbnail") %>
+      <% else %>
+      <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+      <% end %>
+      <% end %>
+    </td>
+    <td>
+      <%= good.title %>
+    </td>
+    <td>
+
+      <%= good.stuff_price %>
     </td>
     <td>
       <%= link_to("Edit", edit_admin_good_path(good)) %>
+    </td>
+    <td>
       <%= link_to("Destroy", admin_good_path(good), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
-
-
+    </td>
+    <td>
       <% if good.is_hidden %>
 
          <%= link_to("Publish", publish_admin_good_path(good) , :method => :post, :class => "btn btn-xs btn-default") %>
        <% else %>
          <%= link_to("Hide", hide_admin_good_path(good), :method => :post,  :class => "btn btn-xs btn-default") %>
        <% end %>
-
+     </td>
 
     </td>
     <td>
