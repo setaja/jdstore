@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
   resources :goods do
     member do
+      post :add_to_cart
       post :publish
       post :hide
     end
