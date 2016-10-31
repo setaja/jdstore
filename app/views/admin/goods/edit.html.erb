@@ -1,10 +1,27 @@
 <h1> Edit a stuff </h1>
 <%= simple_form_for [:admin, @good] do |f| %>
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :stuff_size, :label => "尺寸" %>
-<%= f.input :stuff_price, :label => "價格" %>
-<%= f.input :stuff_quantity, :label => "庫存數量" %>
+
+<div class="group">
+  <%= f.input :title %>
+</div>
+
+<div class="group">
+  <%= f.input :description %>
+</div>
+
+<div class="group">
+  <%= f.input :stuff_size, :label => "尺寸" %>
+</div>
+
+<div class="group">
+  <%= f.input :stuff_price, :label => "價格" %>
+</div>
+
+<div class="group">
+  <%= f.input :stuff_quantity, :label => "庫存數量" %>
+</div>
+
 <%= f.input :is_hidden %>
+
 <%= f.submit "Submit" %>
 <% end %>
