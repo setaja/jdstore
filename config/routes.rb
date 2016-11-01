@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'goods#index'
+  resources :carts
   namespace :admin do
     resources :goods do
       member do
-        #post :add_to_cart
         post :publish
         post :hide
       end
@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-
   resources :goods do
+
     member do
       post :add_to_cart
     end
