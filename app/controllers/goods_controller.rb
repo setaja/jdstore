@@ -52,6 +52,7 @@ class GoodsController < ApplicationController
 
   def add_to_cart
     @good = Good.find(params[:id])
+    current_cart.add_good_to_cart(@good)
     redirect_to :back
   end
 
