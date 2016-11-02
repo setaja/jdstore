@@ -26,6 +26,9 @@
             </td>
             <td>
               <%= link_to(cart_item.good.title, good_path(cart_item.good)) %>
+              <br/>
+
+              <%= link_to("刪除商品",remove_from_cart_cart_path(current_cart)) %>
             </td>
             <td>
               <%= cart_item.good.stuff_price %>

@@ -56,6 +56,7 @@ class GoodsController < ApplicationController
     redirect_to :back
   end
 
+
   private
 
   def good_params
