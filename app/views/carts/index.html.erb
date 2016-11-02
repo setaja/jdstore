@@ -6,7 +6,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th colspan="2">商品</th>
+          <th colspan="2">購買商品</th>
           <th>單價</th>
           <th>數量</th>
         </tr>
@@ -27,8 +27,7 @@
             <td>
               <%= link_to(cart_item.good.title, good_path(cart_item.good)) %>
               <br/>
-
-              <%= link_to("刪除商品",remove_from_cart_cart_path(current_cart)) %>
+              <%= link_to("刪除", cart_item_path(cart_item.good_id), method: :delete ) %>
             </td>
             <td>
               <%= cart_item.good.stuff_price %>
@@ -42,13 +41,12 @@
       </tbody>
     </table>
 
+
     <br>
 
     <div class="total clearfix">
       <span class="pull-right">
-         <span>
            總計 <%= render_cart_total_price(current_cart) %>  元
-        </span>
       </span>
     </div>
 
@@ -56,9 +54,7 @@
 
     <div class="checkout clearfix">
       <%= link_to("清空購物車", cart_path(current_cart), :method => :delete, :data => { :confirm => "全都不買了嗎？"} , class: "btn btn-lg btn-default pull-left") %>
-
       <%= link_to("確認無誤結帳", "#", method: :post, class: "btn btn-lg btn-danger pull-right") %>
     </div>
-
   </div>
 </div>
