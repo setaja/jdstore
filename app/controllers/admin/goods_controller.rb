@@ -18,7 +18,7 @@ class Admin::GoodsController < ApplicationController
   def create
     @good = Good.new(good_params)
     if @good.save
-      redirect_to goods_path
+      redirect_to admin_goods_path
     else
       render :new
     end
@@ -57,6 +57,8 @@ class Admin::GoodsController < ApplicationController
 
     redirect_to :back
   end
+
+
 
 
   private
