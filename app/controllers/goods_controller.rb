@@ -50,6 +50,11 @@ class GoodsController < ApplicationController
     redirect_to goods_path
   end
 
+  def add_to_cart
+    @good = Good.find(params[:id])
+    redirect_to :back
+  end
+
   private
 
   def good_params

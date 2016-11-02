@@ -3,7 +3,7 @@
     <% if @good.image.present? %>
     <%= image_tag(@good.image.medium.url, class: "thumbnail") %>
     <% end %>
-  </div>  
+  </div>
   <div class="col-md-6">
     <h2> <%= @good.title %></h2>
     <div style="height:100px;">
@@ -14,7 +14,7 @@
     <div> 數量： <%= @good.stuff_quantity %></div>
     <div class="product-price">$<%= @good.stuff_price %></div>
     <div class="pull-right">
-      <%= link_to("add to cart", "#", :class => "btn btn-primary btn-lg btn-danger") %>
+  <%= link_to("加入購物車", add_to_cart_good_path(@good), :method => :post, :class => "btn btn-primary btn-lg btn-success") %>
     </div>
   </div>
 </div>
