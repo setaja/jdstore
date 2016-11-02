@@ -43,7 +43,13 @@
 
     <div class="total clearfix">
       <span class="pull-right">
-         <span> 總計 xxx 元  </span>
+         <span>
+           <% sum = 0 %>
+           <% current_cart.cart_items.each do |cart_items| %>
+           <% sum = sum + cart_items.quantity * cart_items.good.stuff_price %>
+           <% end %>
+           總計 <%= sum %>  元
+        </span>
       </span>
     </div>
 
