@@ -27,8 +27,8 @@
       <%= image_tag("http://placehold.it/200x200&text=NoPic", class: "thumbnail") %>
       <% end %>
       <% end %>
-      <%= good.title %> $ <%= good.stuff_price %>
-</div>
-
+      <%= link_to(good.title, good_path(good)) %>
+      $ <%= good.stuff_price %>
+  </div>
   <% end %>
 </div>
