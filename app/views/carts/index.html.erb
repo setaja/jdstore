@@ -52,11 +52,7 @@
     <hr>
 
     <div class="checkout clearfix">
-      <%= link_to("清空購物車", cart_path(cart), :method => :delete, :data => { :confirm => "全都不買了嗎？"} , class: "btn btn-lg btn-default pull-left") %>
-
-      <%= link_to("Destroy", admin_good_path(good), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
-
-
+      <%= link_to("清空購物車", cart_path(current_cart), :method => :delete, :data => { :confirm => "全都不買了嗎？"} , class: "btn btn-lg btn-default pull-left") %>
 
       <%= link_to("確認無誤結帳", "#", method: :post, class: "btn btn-lg btn-danger pull-right") %>
     </div>
