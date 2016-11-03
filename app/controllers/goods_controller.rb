@@ -52,8 +52,12 @@ class GoodsController < ApplicationController
 
   def add_to_cart
     @good = Good.find(params[:id])
-    current_cart.add_good_to_cart(@good)
-    redirect_to :back
+     if @good = current_cart.goods
+      flash[:warning] = "already in cart"
+     else
+      current_cart.add_good_to_cart(@good)
+     end
+      redirect_to goods_path
   end
 
   private
