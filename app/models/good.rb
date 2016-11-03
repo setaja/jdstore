@@ -9,8 +9,7 @@ class Good < ApplicationRecord
   validates :description, presence:true
   validates :stuff_size, presence:true
   validates :stuff_price, numericality: {greater_than:0}
-  validates :stuff_quantity, numericality: {greater_than:0}
-
+  validates :stuff_quantity, numericality: {greater_than:-1}
   def publish!
     self.is_hidden = false
     self.save

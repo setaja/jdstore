@@ -52,6 +52,7 @@ class GoodsController < ApplicationController
 
   def add_to_cart
     @good = Good.find(params[:id])
+    @good.stuff_quantity !=0
     if  current_cart.goods.include?(@good)
      flash[:notice] = 'Already in your cart'
     else

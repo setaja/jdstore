@@ -14,7 +14,14 @@
     <div> 數量： <%= @good.stuff_quantity %></div>
     <div class="product-price">$<%= @good.stuff_price %></div>
     <div class="pull-right">
-  <%= link_to("加入購物車", add_to_cart_good_path(@good), :method => :post, :class => "btn btn-primary btn-lg btn-success") %>
+
+      <% if @good.stuff_quantity !=0 %>
+      <%= link_to("加入購物車", add_to_cart_good_path(@good), :method => :post, :class => "btn btn-primary btn-lg btn-success") %>
+      <% else %>
+      <%= link_to("已銷售一空", "#", class: "btn btn-default") %>
+
+     <% end %>
+
     </div>
   </div>
 </div>
