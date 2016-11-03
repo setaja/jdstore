@@ -2,7 +2,7 @@ class GoodsController < ApplicationController
   before_filter :authenticate_user!, only:[:new, :create, :update, :edit, :destroy]
 
   def index
-    @goods = case params[:order]
+    @goods = case params[:id]
     when 'by_price'
       Good.published.order('stuff_price DESC')
     else
@@ -13,7 +13,7 @@ class GoodsController < ApplicationController
   def show
     @good = Good.find(params[:id])
     if @good.is_hidden
-      flash[:warining] = "This stuff is already sold out"
+      flash[:notice] = "This stuff is already sold out"
       redirect_to root_path
     end
   end
@@ -52,14 +52,18 @@ class GoodsController < ApplicationController
 
   def add_to_cart
     @good = Good.find(params[:id])
-    current_cart.add_good_to_cart(@good)
-    redirect_to :back
+    if  current_cart.goods.include?(@good)
+     flash[:notice] = 'Already in your cart'
+    else
+      current_cart.add_good_to_cart(@good)
+    end
+      redirect_to :back
   end
 
   private
 
   def good_params
-    params.require(:good).permit(:title, :description, :stuff_size, :stuff_price, :stuff_quantity, :is_hidden)
+    params.require(:good).permit(:title, :description, :stuff_size, :stuff_price, :stuff_quantity, :is_hidden, :image)
   end
 
 end

@@ -1,5 +1,6 @@
 class Good < ApplicationRecord
-  has_many :photos, dependent: :destroy
+  has_many :images, dependent: :destroy
+  has_many :buyers, through: :cart_items, source: :good
   mount_uploader :image, ImageUploader
 
   scope :published, -> { where(is_hidden: false) }
