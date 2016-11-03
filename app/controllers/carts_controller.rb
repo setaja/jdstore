@@ -5,5 +5,8 @@ class CartsController < ApplicationController
     redirect_to :back
   end
 
+  def index
+    @cart = current_cart
+  end
 
 end

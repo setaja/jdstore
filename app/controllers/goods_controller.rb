@@ -52,12 +52,8 @@ class GoodsController < ApplicationController
 
   def add_to_cart
     @good = Good.find(params[:id])
-     if @good = current_cart.goods
-      flash[:warning] = "already in cart"
-     else
-      current_cart.add_good_to_cart(@good)
-     end
-      redirect_to goods_path
+    current_cart.add_good_to_cart(@good)
+    redirect_to :back
   end
 
   private
